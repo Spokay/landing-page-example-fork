@@ -14,13 +14,13 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'docker build -t registry.spokayhub.top/landing-page-example:latest .'
+                sh 'docker build -t registry.spokayhub.top/basic-landing-page:latest .'
             }
         }
         stage('Push') {
             steps {
                   withDockerRegistry(credentialsId: 'spokay-registry-credentials', url: 'https://registry.spokayhub.top/') {
-                        sh 'docker push registry.spokayhub.top/landing-page-example:latest'
+                        sh 'docker push registry.spokayhub.top/basic-landing-page:latest'
                   }
             }
         }
