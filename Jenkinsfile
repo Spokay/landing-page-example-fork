@@ -7,7 +7,7 @@ pipeline {
                 cleanWs()
             }
         }
-        stage('Checkout') {
+        /*stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/Spokay/landing-page-example-fork.git'
             }
@@ -24,7 +24,7 @@ pipeline {
                         sh 'docker push registry.spokayhub.top/landing-page-example:latest'
                   }
             }
-        }
+        }*/
 
         stage('Deploy') {
             steps {
