@@ -7,12 +7,11 @@ pipeline {
                 cleanWs()
             }
         }
-        /*stage('Checkout') {
+        stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/Spokay/landing-page-example-fork.git'
             }
         }
-
         stage('Build') {
             steps {
                 sh 'docker build -t registry.spokayhub.top/landing-page-example:latest .'
@@ -24,8 +23,7 @@ pipeline {
                         sh 'docker push registry.spokayhub.top/landing-page-example:latest'
                   }
             }
-        }*/
-
+        }
         stage('Deploy') {
             steps {
                 sshagent(credentials: ['azure-ssh-credentials']) {
